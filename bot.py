@@ -5,9 +5,9 @@ import datetime
 from urllib import parse, request
 import re
 
-client = discord.Client()
-client = commands.Bot(command_prefix='>', description="This is a Helper Bot")
-client.remove_command('help')
+bot = discord.Client()
+bot = commands.Bot(command_prefix='>', description="This is a Helper Bot")
+bot.remove_command('help')
 
 @bot.command()
 async def ping(ctx):
@@ -43,7 +43,7 @@ async def youtube(ctx, *, search):
 # Events
 @bot.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game(name='Animal Paradise'))
+    await bot.change_presence(activity=discord.Game(name='Animal Paradise'))
     print('Bot is Ready!')
 
 
@@ -55,6 +55,6 @@ async def on_message(message):
         await message.channel.send('Server:')
         await message.channel.send('Java: `play.animalparadise.tk`')
         await message.channel.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
-        await client.process_commands(message)
+        await bot.process_commands(message)
 
-client.run('OTgwNDY3MTI5NDExMzA1NDky.Gsthsr.NAePRb94KuYXQZcBXA0vYNgVFHbyWylCC4_mDA')
+bot.run('OTgwNDY3MTI5NDExMzA1NDky.Gsthsr.NAePRb94KuYXQZcBXA0vYNgVFHbyWylCC4_mDA')
