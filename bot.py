@@ -22,9 +22,10 @@ async def info(ctx):
     embed.add_field(name="Server Owner", value=f"{ctx.guild.owner}")
     embed.add_field(name="Server Region", value=f"{ctx.guild.region}")
     embed.add_field(name="Server ID", value=f"{ctx.guild.id}")
-    embed.set_thumbnail(url=f"{ctx.guild.icon}")
+    #embed.set_thumbnail(url=f"{ctx.guild.icon}")
     #embed.set_thumbnail(url="https://pluralsight.imgix.net/paths/python-7be70baaac.png")
-
+    embed.set_thumbnail(url="https://github.com/Animal-Paradise/DC-bot/raw/Live/logo.png")
+    
     await ctx.send(embed=embed)
 
 @bot.command()
