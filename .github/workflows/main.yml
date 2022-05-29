@@ -1,0 +1,17 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - Live
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          PTE_PANEL_URL: 'https://panel.mytro-hosting.tk'
+          PTE_BEARER_TOKEN: kHBeU7nOf3il7qjIUG8oqhG1I2PPlooii2BPsGP3hnOU1Era
+          PTE_PANEL_ID: 9e0baac6

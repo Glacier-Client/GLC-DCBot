@@ -5,15 +5,17 @@ import datetime
 from urllib import parse, request
 import re
 
+bot = discord.Client()
 bot = commands.Bot(command_prefix='>', description="This is a Helper Bot")
+bot.remove_command('help')
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('pong')
+    await ctx.send('pong, ' + ctx.message.author.mention)
 
 @bot.command()
-async def sum(ctx, numOne: int, numTwo: int):
-    await ctx.send(numOne + numTwo)
+async def help(ctx):
+    await ctx.send("To be added, " + ctx.message.author.mention)
 
 @bot.command()
 async def info(ctx):
@@ -22,9 +24,10 @@ async def info(ctx):
     embed.add_field(name="Server Owner", value=f"{ctx.guild.owner}")
     embed.add_field(name="Server Region", value=f"{ctx.guild.region}")
     embed.add_field(name="Server ID", value=f"{ctx.guild.id}")
-    embed.set_thumbnail(url=f"{ctx.guild.icon}")
+    #embed.set_thumbnail(url=f"{ctx.guild.icon}")
     #embed.set_thumbnail(url="https://pluralsight.imgix.net/paths/python-7be70baaac.png")
-
+    embed.set_thumbnail(url="https://github.com/Animal-Paradise/DC-bot/raw/Live/logo.png")
+    
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -46,9 +49,12 @@ async def on_ready():
 
 @bot.listen()
 async def on_message(message):
-    if "tutorial" in message.content.lower():
+    if "ip" in message.content.lower():
         # in this case don't respond with the word "Tutorial" or you will call the on_message event recursively
-        await message.channel.send('This is that you want http://youtube.com/fazttech')
+        await ctx.send(ctx.message.author.mention)
+        await message.channel.send('Server:')
+        await message.channel.send('Java: `play.animalparadise.tk`')
+        await message.channel.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
         await bot.process_commands(message)
 
 bot.run('OTgwNDY3MTI5NDExMzA1NDky.Gsthsr.NAePRb94KuYXQZcBXA0vYNgVFHbyWylCC4_mDA')
