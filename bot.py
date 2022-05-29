@@ -22,8 +22,8 @@ async def info(ctx):
     embed.add_field(name="Server Owner", value=f"{ctx.guild.owner}")
     embed.add_field(name="Server Region", value=f"{ctx.guild.region}")
     embed.add_field(name="Server ID", value=f"{ctx.guild.id}")
-    # embed.set_thumbnail(url=f"{ctx.guild.icon}")
-    embed.set_thumbnail(url="https://pluralsight.imgix.net/paths/python-7be70baaac.png")
+    embed.set_thumbnail(url=f"{ctx.guild.icon}")
+    #embed.set_thumbnail(url="https://pluralsight.imgix.net/paths/python-7be70baaac.png")
 
     await ctx.send(embed=embed)
 
@@ -33,14 +33,14 @@ async def youtube(ctx, *, search):
     html_content = request.urlopen('http://www.youtube.com/results?' + query_string)
     # print(html_content.read().decode())
     search_results = re.findall('href=\"\\/watch\\?v=(.{11})', html_content.read().decode())
-    print(search_results)
+    # print(search_results)
     # I will put just the first result, you can loop the response to show more results
     await ctx.send('https://www.youtube.com/watch?v=' + search_results[0])
 
 # Events
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Streaming(name="Tutorials", url="http://www.twitch.tv/accountname"))
+    await bot.change_presence(activity=discord.Playing(name="Animal Paradise", url="https://glacierclient.net"))
     print('Bot is Ready!')
 
 
