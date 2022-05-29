@@ -51,7 +51,7 @@ async def on_ready():
 async def on_message(message):
     if "ip" in message.content.lower():
         # in this case don't respond with the word "Tutorial" or you will call the on_message event recursively
-        await ctx.send(ctx.message.author.mention)
+        await message.channel.send(message.author.mention)
         await message.channel.send('Server:')
         await message.channel.send('Java: `play.animalparadise.tk`')
         await message.channel.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
