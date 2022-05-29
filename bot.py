@@ -40,7 +40,7 @@ async def youtube(ctx, *, search):
 # Events
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Playing(name="Animal Paradise", url="https://glacierclient.net"))
+    await bot.change_presence(activity=discord.Game(name='Animal Paradise')
     print('Bot is Ready!')
 
 
