@@ -41,7 +41,7 @@ async def youtube(ctx, *, search):
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Streaming(name="Tutorials", url="http://www.twitch.tv/accountname"))
-    print('My Ready is Body')
+    print('Bot is Ready!')
 
 
 @bot.listen()
