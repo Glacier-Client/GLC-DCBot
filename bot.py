@@ -47,9 +47,11 @@ async def on_ready():
 
 @bot.listen()
 async def on_message(message):
-    if "tutorial" in message.content.lower():
+    if "ip" in message.content.lower():
         # in this case don't respond with the word "Tutorial" or you will call the on_message event recursively
-        await message.channel.send('This is that you want http://youtube.com/fazttech')
+        await message.channel.send('Server IP:')
+        await message.channel.send('Java: `play.animalparadise.tk`')
+        await message.channel.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
         await bot.process_commands(message)
 
 bot.run('OTgwNDY3MTI5NDExMzA1NDky.Gsthsr.NAePRb94KuYXQZcBXA0vYNgVFHbyWylCC4_mDA')
