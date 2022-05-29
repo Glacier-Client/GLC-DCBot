@@ -5,15 +5,17 @@ import datetime
 from urllib import parse, request
 import re
 
-bot = commands.Bot(command_prefix='>', description="This is a Helper Bot")
+client = discord.Client()
+client = commands.Bot(command_prefix='>', description="This is a Helper Bot")
+client.remove_command('help')
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('pong')
+    await ctx.send('pong' + ctx.message.author.mention)
 
 @bot.command()
-async def sum(ctx, numOne: int, numTwo: int):
-    await ctx.send(numOne + numTwo)
+async def help(ctx):
+    await ctx.send("To be added" + ctx.message.author.mention)
 
 @bot.command()
 async def info(ctx):
@@ -41,7 +43,7 @@ async def youtube(ctx, *, search):
 # Events
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name='Animal Paradise'))
+    await client.change_presence(activity=discord.Game(name='Animal Paradise'))
     print('Bot is Ready!')
 
 
@@ -49,9 +51,10 @@ async def on_ready():
 async def on_message(message):
     if "ip" in message.content.lower():
         # in this case don't respond with the word "Tutorial" or you will call the on_message event recursively
+        await ctx.send(ctx.message.author.mention)
         await message.channel.send('Server:')
         await message.channel.send('Java: `play.animalparadise.tk`')
         await message.channel.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
-        await bot.process_commands(message)
+        await client.process_commands(message)
 
-bot.run('OTgwNDY3MTI5NDExMzA1NDky.Gsthsr.NAePRb94KuYXQZcBXA0vYNgVFHbyWylCC4_mDA')
+client.run('OTgwNDY3MTI5NDExMzA1NDky.Gsthsr.NAePRb94KuYXQZcBXA0vYNgVFHbyWylCC4_mDA')
