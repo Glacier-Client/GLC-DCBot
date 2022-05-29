@@ -6,7 +6,7 @@ from urllib import parse, request
 import re
 
 bot = discord.Client()
-bot = commands.Bot(command_prefix='>', description="This is a Helper Bot")
+bot = commands.Bot(command_prefix='?', description="This is a Helper Bot")
 bot.remove_command('help')
 
 @bot.command()
@@ -24,9 +24,8 @@ async def info(ctx):
     embed.add_field(name="Server Owner", value=f"{ctx.guild.owner}")
     embed.add_field(name="Server Region", value=f"{ctx.guild.region}")
     embed.add_field(name="Server ID", value=f"{ctx.guild.id}")
-    #embed.set_thumbnail(url=f"{ctx.guild.icon}")
     #embed.set_thumbnail(url="https://pluralsight.imgix.net/paths/python-7be70baaac.png")
-    embed.set_thumbnail(url="https://github.com/Animal-Paradise/DC-bot/raw/Live/logo.png")
+    embed.set_thumbnail(url=f"{ctx.guild.icon_url}")
     
     await ctx.send(embed=embed)
 
