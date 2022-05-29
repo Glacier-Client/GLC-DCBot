@@ -11,11 +11,11 @@ bot.remove_command('help')
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('pong' + ctx.message.author.mention)
+    await ctx.send('pong, ' + ctx.message.author.mention)
 
 @bot.command()
 async def help(ctx):
-    await ctx.send("To be added" + ctx.message.author.mention)
+    await ctx.send("To be added, " + ctx.message.author.mention)
 
 @bot.command()
 async def info(ctx):
