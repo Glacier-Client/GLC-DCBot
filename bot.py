@@ -63,4 +63,4 @@ async def on_message(message):
     #    await message.channel.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
     #    await bot.process_commands(message)
 
-bot.run(${{ secrets.SECRET_TOKEN }})
+bot.run('OTgwNDY3MTI5NDExMzA1NDky.GX4rt9.FgSotYK6ha3eyjQreX9I-IjVvLcOng-nt_ab5s')
