@@ -56,6 +56,7 @@ async def on_ready():
 
 @bot.listen()
 async def on_message(message):
+    return
     #if " ip " in message.content.lower():
     #    # in this case don't respond with the word "Tutorial" or you will call the on_message event recursively
     #    await message.channel.send('Server:')
