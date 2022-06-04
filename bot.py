@@ -16,6 +16,14 @@ async def ping(ctx):
 @bot.command()
 async def help(ctx):
     await ctx.send("To be added, " + ctx.message.author.mention)
+   
+
+@bot.command()
+async def ip(ctx):
+    await ctx.send('Server:')
+    await ctx.send('Java: `play.animalparadise.tk`')
+    await ctx.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
+    
 
 @bot.command()
 async def info(ctx):
@@ -48,12 +56,11 @@ async def on_ready():
 
 @bot.listen()
 async def on_message(message):
-    if "ip" in message.content.lower():
-        # in this case don't respond with the word "Tutorial" or you will call the on_message event recursively
-        await message.channel.send(message.author.mention)
-        await message.channel.send('Server:')
-        await message.channel.send('Java: `play.animalparadise.tk`')
-        await message.channel.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
-        await bot.process_commands(message)
+    #if " ip " in message.content.lower():
+    #    # in this case don't respond with the word "Tutorial" or you will call the on_message event recursively
+    #    await message.channel.send('Server:')
+    #    await message.channel.send('Java: `play.animalparadise.tk`')
+    #    await message.channel.send('Bedrock: `play.bedrock.animalparadise.tk` Port: `25566`')
+    #    await bot.process_commands(message)
 
 bot.run('OTgwNDY3MTI5NDExMzA1NDky.Gsthsr.NAePRb94KuYXQZcBXA0vYNgVFHbyWylCC4_mDA')
