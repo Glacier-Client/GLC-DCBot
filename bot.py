@@ -37,7 +37,7 @@ async def info(ctx):
 # Events
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name='Animal Paradise'))
+    await bot.change_presence(activity=discord.Game(name='Glacier Client'))
     print('Bot is Ready!')
 
 
